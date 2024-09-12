@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BookOpen, Pen, Users, GitFork, ThumbsUp } from "lucide-react"
 import {Link} from "react-router-dom"
+import { auth } from "../firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import useAuth from "../Hooks/useAuth";
 
 function Home() {
+  const { setAuth } = useAuth(); // Auth context state
+  const [userAuth, setUserAuth] = useState();
+
+  onAuthStateChanged(auth, (user) => {
+    setUserAuth(user);
+    setAuth(user);
+  });
+
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
 <img src="/assets/blur-bg.svg" className='h-full w-full absolute object-cover'/>
@@ -15,9 +26,9 @@ function Home() {
         </Link>
         <div className="flex items-center space-x-4">
           <Link href="/about" className="hover:text-purple-400 transition-colors">About</Link>
-          <button variant="outline" className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-1 rounded-md text-md transition-colors">
-            Login
-          </button>
+          <Link to={userAuth ? '/stories' : 'login'} variant="outline" className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-1 rounded-md text-md transition-colors">
+            {userAuth ? 'Stories' : 'Login'}
+          </Link>
         </div>
       </nav>
       <section className="flex-grow flex flex-col items-center justify-center text-center p-4 min-h-[calc(100vh-60px)] z-10">
@@ -27,8 +38,8 @@ function Home() {
         <p className="text-md md:text-lg mb-8 max-w-2xl text-gray-300">
           Write, read, and share captivating stories in a futuristic realm of endless possibilities.
         </p>
-        <Link to="/login" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full text-lg transition-colors" >
-          Get Started
+        <Link to={userAuth ? '/stories' : 'login'} className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full text-lg transition-colors" >
+        Get Started
         </Link>
       </section>
 
@@ -75,7 +86,7 @@ function Home() {
             Experience stories where you're in control. Writers provide multiple plot options, 
             allowing readers to shape the narrative and create their own unique adventure.
           </p>
-          <Link to="/login" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full text-lg transition-colors" >
+          <Link to={userAuth ? '/stories' : 'login'} className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full text-lg transition-colors" >
           Get Started
         </Link>   
         </div>

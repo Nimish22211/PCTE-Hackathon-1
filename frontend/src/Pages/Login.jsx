@@ -23,15 +23,15 @@ function Login() {
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4 relative overflow-hidden">
         
-      {[...Array(20)].map((_, i) => (
+      {[...Array(30)].map((_, i) => (
         <img
           src="/assets/sparkles.svg"
           key={i}
           className="text-cyan-400 absolute animate-pulse"
           style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 2}s`,
+            top: `${Math.random() * 95}%`,
+            left: `${Math.random() * 95}%`,
+            animationDelay: `${Math.random() * 1}s`,
             opacity: Math.random() * 0.5 + 0.5,
           }}
         />
