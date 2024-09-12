@@ -5,6 +5,7 @@ import Stories from "./Pages/Stories";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Write from "./Pages/Write";
 import LandingPage from "./Pages/LandingPage";
+import Home from "./Pages/Home";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
             <Route path="/write" element={<Write />} />
           </Route>
             <Route path="/login" element={<Login/>} />
-            <Route path="/" element={<LandingPage/>} />
+            <Route path="/home" element={<LandingPage/>} />
+            <Route path="/" element={<Home/>} />
           </Routes>
       </Router>
     </div>

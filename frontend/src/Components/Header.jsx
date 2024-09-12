@@ -20,9 +20,11 @@ function Header() {
   return (
     <header className="bg-gray-900 shadow-lg p-4 flex justify-between items-center text-white border-b border-purple-600">
     <div className="text-neon-green  text-2xl tracking">
+      <Link to="/">
       <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
         StoryVerse
       </h1>
+      </Link>
     </div>
     <nav className="space-x-6">
       <Link

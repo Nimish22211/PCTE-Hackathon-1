@@ -1,8 +1,8 @@
 // LandingPage.js
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FiSun, FiMoon } from "react-icons/fi";
 import styled, { ThemeProvider } from "styled-components";
+import { Link } from "react-router-dom";
 
 // Define dark and light themes
 const lightTheme = {
@@ -17,7 +17,7 @@ const darkTheme = {
 
 // Main Container styles
 const Container = styled.div`
-  background-color: ${(props) => props.theme.background};
+  background-color: #111827;
   color: ${(props) => props.theme.color};
   min-height: 100vh;
   padding: 20px;
@@ -105,7 +105,7 @@ const StoryBox = styled.div`
 
 // About Section styles
 const AboutSection = styled.section`
-  background-color: #333;
+  background-color: #111827;
   color: #fff;
   padding: 50px 20px;
   margin-top: 40px;
@@ -156,33 +156,40 @@ const LandingPage = () => {
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <Container>
-        {/* Header with Theme Toggle */}
         <Header>
-          <h1>StoryVerse</h1>
-          <ToggleButton onClick={toggleTheme}>
-            {isDarkMode ? <FiSun /> : <FiMoon />}
-          </ToggleButton>
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
+            StoryVerse
+          </h1>
+          <Link to="/login">
+            Login
+          </Link>
         </Header>
 
-        {/* Main Content */}
-        <motion.div initial="initial" animate="animate">
-          {/* Center StoryVerse Text */}
-          <Title>StoryVerse</Title>
+        <motion.div initial="initial" animate="animate" className="flex flex-col items-center gap-2">
+          <h1 className="text-8xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
+            StoryVerse
+          </h1>
           <h3>Unleash Your Imagination Through Interactive Stories</h3>
-          <Button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
-            Enter the StoryVerse
-          </Button>
+          <Link
+            to="/login"
+            className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700
+                         text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 ease-in-out
+                         transform hover:scale-105 flex items-center justify-center
+                         shadow-lg hover:shadow-cyan-500/50 max-w-fit mt-4"
+          >
+            Enter the storyverse
+          </Link>
         </motion.div>
 
-        {/* New Stories Section */}
         <StoriesSection>
           <h3>
             StoryVerse has been used to create thousands of works. Here's a
             sample:
           </h3>
-          {/* Sample Story Boxes */}
           <StoryBox>
-            <h2><strong>🌟 The Quest of the Forgotten Realms</strong></h2>
+            <h2 className="text-xl">
+              <strong>🌟 The Quest of the Forgotten Realms</strong>
+            </h2>
             <p>
               Follow the journey of a young adventurer who must navigate
               treacherous lands, form unexpected alliances, and uncover ancient
@@ -190,7 +197,9 @@ const LandingPage = () => {
             </p>
           </StoryBox>
           <StoryBox>
-            <h2><strong>🔥 Tales of the Undying Flame</strong></h2>
+            <h2 className="text-xl">
+              <strong>🔥 Tales of the Undying Flame</strong>
+            </h2>
             <p>
               A powerful mage, cursed with immortality, seeks a way to break
               their eternal torment while battling dark forces that threaten to
@@ -198,25 +207,25 @@ const LandingPage = () => {
             </p>
           </StoryBox>
           <StoryBox>
-            <h2><strong>🚀 The Galactic Odyssey</strong></h2>
+            <h2 className="text-xl">
+              <strong>🚀 The Galactic Odyssey</strong>
+            </h2>
             <p>
-              Join Captain Zara and her diverse crew as they embark on a
-              daring mission to explore unknown galaxies, encounter alien
+              Join Captain Zara and her diverse crew as they embark on a daring
+              mission to explore unknown galaxies, encounter alien
               civilizations, and confront the mysteries of the cosmos.
             </p>
           </StoryBox>
         </StoriesSection>
 
-        {/* Animated Sparkles */}
         {generateSparkles()}
 
-        {/* About Section */}
         <AboutSection>
-          <h3>About the Site</h3>
+          <h3 className="text-2xl font-bold">About the Site</h3>
           <p>
             StoryVerse is a platform where storytellers and readers come
-            together to create, explore, and experience interactive fiction
-            like never before.
+            together to create, explore, and experience interactive fiction like
+            never before.
           </p>
         </AboutSection>
       </Container>
