@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import Stories from "./Pages/Stories";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Write from "./Pages/Write";
+import LandingPage from "./Pages/LandingPage";
 
 function App() {
   return (
