@@ -63,6 +63,16 @@ const Button = styled(motion.button)`
   }
 `;
 
+const ButtonContainer = styled.div`
+  margin-top: 20px; /* Adds space between the subtitle and the button */
+`;
+
+const Subtitle = styled.h3`
+  margin: 20px 0; /* Adds space above and below the subtitle */
+  color: #bbb;
+  font-size: 24px;
+`;
+
 // StoryVerse Title styles
 const Title = styled.h2`
   font-size: 4rem;
@@ -159,7 +169,7 @@ const LandingPage = () => {
           {/* Center StoryVerse Text */}
           <Title>StoryVerse</Title>
           <h3>Unleash Your Imagination Through Interactive Stories</h3>
-          <Button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <Button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
             Enter the StoryVerse
           </Button>
         </motion.div>
@@ -172,7 +182,7 @@ const LandingPage = () => {
           </h3>
           {/* Sample Story Boxes */}
           <StoryBox>
-            <h4><strong>🌟 The Quest of the Forgotten Realms</strong></h4>
+            <h2><strong>🌟 The Quest of the Forgotten Realms</strong></h2>
             <p>
               Follow the journey of a young adventurer who must navigate
               treacherous lands, form unexpected alliances, and uncover ancient
@@ -180,7 +190,7 @@ const LandingPage = () => {
             </p>
           </StoryBox>
           <StoryBox>
-            <h4><strong>🔥 Tales of the Undying Flame</strong></h4>
+            <h2><strong>🔥 Tales of the Undying Flame</strong></h2>
             <p>
               A powerful mage, cursed with immortality, seeks a way to break
               their eternal torment while battling dark forces that threaten to
@@ -188,7 +198,7 @@ const LandingPage = () => {
             </p>
           </StoryBox>
           <StoryBox>
-            <h4><strong>🚀 The Galactic Odyssey</strong></h4>
+            <h2><strong>🚀 The Galactic Odyssey</strong></h2>
             <p>
               Join Captain Zara and her diverse crew as they embark on a
               daring mission to explore unknown galaxies, encounter alien
