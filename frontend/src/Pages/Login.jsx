@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { auth, provider } from '../firebase'
+import { onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth'
+import useAuth from '../Hooks/useAuth'
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+    const { setAuth } = useAuth() // Auth context state
+    const [userAuth, setUserAuth] = useState()
+    const navigate = useNavigate(); 
+    onAuthStateChanged(auth, user => {
+        setUserAuth(user)
+        setAuth(user)
+    })
+
+        const SignIn = () => {
+            return signInWithPopup(auth, provider).then(res => {
+                navigate('/stories')
+            }).catch(err => console.error(err))
+        }
+
+
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4 relative overflow-hidden">
         
@@ -33,6 +52,7 @@ function Login() {
                          shadow-lg hover:shadow-cyan-500/50"
               onClick={() => {
                 // Implement Google Sign-In logic here
+                SignIn()
                 console.log("Google Sign-In clicked")
               }}
             >
