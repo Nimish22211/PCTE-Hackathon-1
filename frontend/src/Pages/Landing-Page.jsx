@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-// LandingPage.js
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import styled, { ThemeProvider } from "styled-components";
-import { Link } from "react-router-dom";
-=======
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
->>>>>>> 2dabd41 (Landing Page)
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Simple SVG icons
 const ChevronDown = () => (
@@ -23,24 +15,11 @@ const Mail = () => (
   </svg>
 );
 
-<<<<<<< HEAD
-// Main Container styles
-const Container = styled.div`
-  background-color: #111827;
-  color: ${(props) => props.theme.color};
-  min-height: 100vh;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-`;
-=======
 const Phone = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
   </svg>
 );
->>>>>>> 2dabd41 (Landing Page)
 
 const Star = ({ style }) => (
   <motion.div
@@ -72,175 +51,6 @@ const StarryBackground = () => {
       },
     });
 
-<<<<<<< HEAD
-const ButtonContainer = styled.div`
-  margin-top: 20px; /* Adds space between the subtitle and the button */
-`;
-
-const Subtitle = styled.h3`
-  margin: 20px 0; /* Adds space above and below the subtitle */
-  color: #bbb;
-  font-size: 24px;
-`;
-
-// StoryVerse Title styles
-const Title = styled.h2`
-  font-size: 4rem;
-  margin: 40px 0 20px;
-`;
-
-// Stories Section styles
-const StoriesSection = styled.section`
-  background-color: #222;
-  color: #ddd;
-  padding: 40px 20px;
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-// Story Box styles
-const StoryBox = styled.div`
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
-  margin: 10px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: left;
-`;
-
-// About Section styles
-const AboutSection = styled.section`
-  background-color: #111827;
-  color: #fff;
-  padding: 50px 20px;
-  margin-top: 40px;
-  border-top: 3px solid #ff007f;
-`;
-
-// Sparkle styles
-const Sparkle = styled(motion.span)`
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background-color: #fff;
-  border-radius: 50%;
-  opacity: 0;
-`;
-
-const LandingPage = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
-  // Generate sparkles evenly in the background
-  const generateSparkles = () => {
-    const sparkles = [];
-    for (let i = 0; i < 20; i++) {
-      sparkles.push(
-        <Sparkle
-          key={i}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-          style={{
-            left: `${(i % 5) * 20 + Math.random() * 10}%`,
-            top: `${Math.floor(i / 5) * 20 + Math.random() * 10}%`,
-          }}
-        />
-      );
-    }
-    return sparkles;
-  };
-
-  return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <Container>
-        <Header>
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
-            StoryVerse
-          </h1>
-          <Link to="/login">
-            Login
-          </Link>
-        </Header>
-
-        <motion.div initial="initial" animate="animate" className="flex flex-col items-center gap-2">
-          <h1 className="text-8xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
-            StoryVerse
-          </h1>
-          <h3>Unleash Your Imagination Through Interactive Stories</h3>
-          <Link
-            to="/login"
-            className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700
-                         text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 ease-in-out
-                         transform hover:scale-105 flex items-center justify-center
-                         shadow-lg hover:shadow-cyan-500/50 max-w-fit mt-4"
-          >
-            Enter the storyverse
-          </Link>
-        </motion.div>
-
-        <StoriesSection>
-          <h3>
-            StoryVerse has been used to create thousands of works. Here's a
-            sample:
-          </h3>
-          <StoryBox>
-            <h2 className="text-xl">
-              <strong>🌟 The Quest of the Forgotten Realms</strong>
-            </h2>
-            <p>
-              Follow the journey of a young adventurer who must navigate
-              treacherous lands, form unexpected alliances, and uncover ancient
-              secrets to save their world from an impending doom.
-            </p>
-          </StoryBox>
-          <StoryBox>
-            <h2 className="text-xl">
-              <strong>🔥 Tales of the Undying Flame</strong>
-            </h2>
-            <p>
-              A powerful mage, cursed with immortality, seeks a way to break
-              their eternal torment while battling dark forces that threaten to
-              consume everything in their path.
-            </p>
-          </StoryBox>
-          <StoryBox>
-            <h2 className="text-xl">
-              <strong>🚀 The Galactic Odyssey</strong>
-            </h2>
-            <p>
-              Join Captain Zara and her diverse crew as they embark on a daring
-              mission to explore unknown galaxies, encounter alien
-              civilizations, and confront the mysteries of the cosmos.
-            </p>
-          </StoryBox>
-        </StoriesSection>
-
-        {generateSparkles()}
-
-        <AboutSection>
-          <h3 className="text-2xl font-bold">About the Site</h3>
-          <p>
-            StoryVerse is a platform where storytellers and readers come
-            together to create, explore, and experience interactive fiction like
-            never before.
-          </p>
-        </AboutSection>
-      </Container>
-    </ThemeProvider>
-=======
     setStars(Array.from({ length: 200 }, generateStar));
   }, []);
 
@@ -250,7 +60,6 @@ const LandingPage = () => {
         <Star key={star.id} style={star.style} />
       ))}
     </div>
->>>>>>> 2dabd41 (Landing Page)
   );
 };
 
@@ -260,6 +69,7 @@ const SleekText = ({ children }) => (
 
 const StoryVerseLandingPage = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -273,11 +83,20 @@ const StoryVerseLandingPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const features = [
     { icon: "⚡", text: "Collaborative authoring" },
     { icon: "🌿", text: "Non-linear storytelling" },
     { icon: "📚", text: "Efficient draft management" },
-    { icon: "👤", text: "Personalized reading" }
+    { icon: "👤", text: "Personalized reading" },
+    { icon: "🤖", text: "AI writing assistant" }
   ];
 
   const sampleStories = [
@@ -286,6 +105,18 @@ const StoryVerseLandingPage = () => {
     { title: "Alley Whispers", genre: "Mystery", icon: "🕵️", color: "bg-red-500" },
     { title: "Destiny's Crossroads", genre: "Adventure", icon: "🗺️", color: "bg-green-500" }
   ];
+
+  const testimonials = [
+    { name: "Alice W.", text: "StoryVerse revolutionized my writing process. The AI assistant is like having a co-author!" },
+    { name: "Bob M.", text: "The non-linear storytelling feature opened up new creative possibilities for me." },
+    { name: "Charlie D.", text: "I've never felt so organized with my drafts. StoryVerse is a game-changer!" }
+  ];
+
+  const handleAIAssistantClick = () => {
+    // This is where you would integrate your AI functionality
+    console.log("AI Assistant button clicked");
+    // For example, you could open a modal or redirect to an AI interface
+  };
 
   return (
     <div className="text-white min-h-screen font-sans relative overflow-hidden">
@@ -306,31 +137,25 @@ const StoryVerseLandingPage = () => {
       <header className="h-screen flex items-center justify-center relative z-10">
         <motion.div 
           className="text-center"
-          style={{
-            y: scrollY * 0.5,
-            opacity: 1 - scrollY / 500
-          }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
           <motion.h1 
             className="text-5xl font-bold mb-4"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            style={{ opacity: 1 - scrollY / 300 }} // Fade out as user scrolls
           >
             Welcome to <SleekText>STORYVERSE</SleekText>
           </motion.h1>
           <motion.p 
             className="text-xl mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            style={{ opacity: 1 - scrollY / 300 }} // Fade out as user scrolls
           >
             Where Your Stories Come to Life
           </motion.p>
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           >
             <ChevronDown />
           </motion.div>
@@ -338,24 +163,19 @@ const StoryVerseLandingPage = () => {
       </header>
 
       {/* Content Wrapper */}
-      <motion.div
-        className="relative z-20 bg-gradient-to-b from-transparent to-gray-900"
-        style={{
-          y: Math.max(0, 100 - scrollY),
-        }}
-      >
+      <div className="relative z-20 bg-gradient-to-b from-transparent to-gray-900">
         {/* Features Section */}
         <section className="py-20 relative z-10">
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-bold mb-8 text-center">What We Offer</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
                 <motion.div 
                   key={index}
                   className="bg-gray-800 bg-opacity-40 backdrop-blur-md p-6 rounded-lg flex items-center space-x-4"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
+                  transition={{ delay: index * 0.1 }}
                 >
                   <div className="flex-shrink-0 text-blue-400 text-2xl">
                     {feature.icon}
@@ -403,6 +223,8 @@ const StoryVerseLandingPage = () => {
           </div>
         </section>
 
+       
+
         {/* Sample Stories Section */}
         <section className="py-20 bg-gray-800 bg-opacity-40 backdrop-blur-md relative z-10">
           <div className="container mx-auto px-6">
@@ -413,9 +235,10 @@ const StoryVerseLandingPage = () => {
                   key={index}
                   className="bg-gray-700 bg-opacity-40 backdrop-blur-md p-6 rounded-lg cursor-pointer"
                   whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <div className="flex items-center mb-4">
                     <div className="mr-3 text-2xl">{story.icon}</div>
@@ -427,6 +250,56 @@ const StoryVerseLandingPage = () => {
             </div>
           </div>
         </section>
+
+        {/* Testimonial Carousel */}
+        <section className="py-20 relative z-10">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-8 text-center">What Our Users Say</h2>
+            <div className="relative h-48 bg-gray-800 bg-opacity-40 backdrop-blur-md rounded-lg overflow-hidden">
+              <AnimatePresence initial={false}>
+                <motion.div
+                  key={currentTestimonial}
+                  className="absolute inset-0 flex items-center justify-center p-8"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="text-center">
+                    <p className="text-lg mb-4">"{testimonials[currentTestimonial].text}"</p>
+                    <p className="font-bold">- {testimonials[currentTestimonial].name}</p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </section>
+
+         {/* AI Writing Assistant Section */}
+         <section className="py-20 relative z-10">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-8 text-center">AI Writing Assistant</h2>
+            <motion.div 
+              className="bg-gray-800 bg-opacity-40 backdrop-blur-md p-8 rounded-lg"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <p className="text-lg mb-4">
+                Unlock your creative potential with our advanced AI writing assistant. Get suggestions, overcome writer's block, and refine your prose with the power of artificial intelligence.
+              </p>
+              <div className="flex justify-center">
+                <button 
+                  className="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
+                  onClick={handleAIAssistantClick}
+                >
+                  Try AI Assistant
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+        
 
         {/* Contact Section */}
         <section className="py-20 relative z-10">
@@ -458,7 +331,7 @@ const StoryVerseLandingPage = () => {
             <p>&copy; 2024 <SleekText>STORYVERSE</SleekText>. All rights reserved.</p>
           </div>
         </footer>
-      </motion.div>
+      </div>
 
       <style jsx global>{`
         .sleek-text {

@@ -4,7 +4,7 @@ import Login from "./Pages/Login";
 import Stories from "./Pages/Stories";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Write from "./Pages/Write";
-import LandingPage from "./Pages/LandingPage";
+import LandingPage from "./Pages/Landing-Page";
 import Home from "./Pages/Home";
 
 function App() {
