@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { BookOpen, Pen, Users, GitFork, ThumbsUp } from "lucide-react"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import { auth } from "../firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import useAuth from "../Hooks/useAuth";
 
 function Home() {
@@ -16,13 +16,13 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
-<img src="/assets/blur-bg.svg" className='h-full w-full absolute object-cover'/>
-    <nav className="flex justify-between items-center p-4 mx-auto w-full px-12 backdrop-blur-lg fixed z-20">
+      <img src="/assets/blur-bg.svg" className='h-full w-full absolute object-cover' alt="blur-bg" />
+      <nav className="flex justify-between items-center p-4 mx-auto w-full px-12 backdrop-blur-lg fixed z-20">
         <Link href="/" className='flex gap-3 items-center'>
-        <img src="/assets/bookOpen.svg" />
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
-        StoryVerse
-      </h1>
+          <img src="/assets/bookOpen.svg" alt="book" />
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
+            StoryVerse
+          </h1>
         </Link>
         <div className="flex items-center space-x-4">
           <Link href="/about" className="hover:text-purple-400 transition-colors">About</Link>
@@ -39,7 +39,7 @@ function Home() {
           Write, read, and share captivating stories in a futuristic realm of endless possibilities.
         </p>
         <Link to={userAuth ? '/stories' : 'login'} className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full text-lg transition-colors" >
-        Get Started
+          Get Started
         </Link>
       </section>
 
@@ -62,7 +62,7 @@ function Home() {
               </div>
             </div>
           </div>
-          
+
           {/* For Writers */}
           <div>
             <h3 className="text-2xl font-semibold mb-12 text-center text-pink-400">For Writers</h3>
@@ -83,28 +83,28 @@ function Home() {
         </div>
         <div className="mt-16 text-center flex flex-col items-center justify-center">
           <p className="text-lg text-gray-300 mb-8 max-w-[600px]">
-            Experience stories where you're in control. Writers provide multiple plot options, 
+            Experience stories where you're in control. Writers provide multiple plot options,
             allowing readers to shape the narrative and create their own unique adventure.
           </p>
           <Link to={userAuth ? '/stories' : 'login'} className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full text-lg transition-colors" >
-          Get Started
-        </Link>   
+            Get Started
+          </Link>
         </div>
       </section>
 
       <section className="py-16 px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-purple-400">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <FeatureCard 
-            title="Write" 
+          <FeatureCard
+            title="Write"
             description="Craft your stories with our intuitive writing tools."
           />
-          <FeatureCard 
-            title="Read" 
+          <FeatureCard
+            title="Read"
             description="Explore a vast library of user-generated content."
           />
-          <FeatureCard 
-            title="Connect" 
+          <FeatureCard
+            title="Connect"
             description="Join a community of passionate writers and readers."
           />
         </div>
@@ -113,25 +113,25 @@ function Home() {
   )
 }
 
-function FeatureCard({ title, description } ) {
-    return (
-      <div className="bg-gray-800 p-6 rounded-lg border border-purple-500 hover:border-pink-500 transition-colors">
-        <h3 className="text-xl font-semibold mb-2 text-purple-400">{title}</h3>
-        <p className="text-gray-300">{description}</p>
-      </div>
-    )
-  }
+function FeatureCard({ title, description }) {
+  return (
+    <div className="bg-gray-800 p-6 rounded-lg border border-purple-500 hover:border-pink-500 transition-colors">
+      <h3 className="text-xl font-semibold mb-2 text-purple-400">{title}</h3>
+      <p className="text-gray-300">{description}</p>
+    </div>
+  )
+}
 
-  function RoadmapStep({ icon: Icon, title, description }) {
-    return (
-      <div className="flex flex-col items-center w-1/3">
-        <div className="bg-gray-700 p-6 rounded-full mb-4 shadow-lg shadow-purple-500/50">
-          <Icon className="text-purple-400 w-10 h-10" />
-        </div>
-        <h4 className="text-lg font-semibold mb-2 text-purple-400">{title}</h4>
-        <p className="text-sm text-gray-300 text-center">{description}</p>
+function RoadmapStep({ icon: Icon, title, description }) {
+  return (
+    <div className="flex flex-col items-center w-1/3">
+      <div className="bg-gray-700 p-6 rounded-full mb-4 shadow-lg shadow-purple-500/50">
+        <Icon className="text-purple-400 w-10 h-10" />
       </div>
-    )
-  }
+      <h4 className="text-lg font-semibold mb-2 text-purple-400">{title}</h4>
+      <p className="text-sm text-gray-300 text-center">{description}</p>
+    </div>
+  )
+}
 
 export default Home
